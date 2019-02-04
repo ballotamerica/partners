@@ -1,24 +1,5 @@
-# README
+Ballot America Partner Portal (partners.ballotamerica.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ballot America Corp is political campaign services company that provides campaign consulting and technology services to candidates and organizations. Since 2013, we've worked with over 30 clients, raising nearly $8 million dollars and garnering nearly 250,000 votes for our clients.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Our newest initiative is building our partner program including our this portal which provides our partners an efficient way to manage their clients without the hassle of multiple software platforms or the out-of-pocket expenses.
