@@ -3,22 +3,15 @@ class ClientsController < ApplicationController
     before_action :set_client, only: [:edit, :update, :show, :destroy]
     
     def index
-       @clients = current_partner.clients
-       
-        if @invoices.blank?
-            flash[:notice] = "Please create your first invoice!"
-            redirect_to clients_path
-        else
-         @invoices =  current_clients.invoices
-        end
+       @clients = Client.all
     end
     
     def new
-       @client = partner.clients.build
+       @client = Client.new
     end
     
     def create
-       @client = current_partner.clients.build(client_params) 
+       @client = partner.clients.build(client_params) 
         if @client.save
             flash[:notice] = "Successfully saved client!"
             redirect_to clients_path
@@ -31,12 +24,9 @@ class ClientsController < ApplicationController
     end
     
     def edit
-
     end    
     
     def update
-        
-        
         if @client.update(client_params)
             flash[:notice] = "Successfully saved client!"
             redirect_to clients_path
@@ -59,6 +49,6 @@ class ClientsController < ApplicationController
     end
     
     def client_params
-       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_phone) 
+       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number) 
     end
 end

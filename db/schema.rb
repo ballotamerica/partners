@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_074338) do
+ActiveRecord::Schema.define(version: 2019_02_04_145157) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_02_04_074338) do
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.decimal "baserate"
-    t.decimal "sub_amount"
     t.integer "invoice_id"
   end
 

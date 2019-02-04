@@ -1,4 +1,3 @@
-
 class Invoice < ApplicationRecord
    has_many :services, inverse_of: :invoice
    belongs_to :client
