@@ -1,0 +1,43 @@
+<% if @client.errors.any? %>
+    <p>The following errors prevented your client from saving:</p>
+    
+    <ul>
+        <% @client.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+    
+<% end %>
+    
+<%= form_for @client, html: { class: "form-group" } do |f| %>
+    <p>
+        <%= f.label "Client Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+    </p>
+    
+    <p>
+        <%= f.label "Client Type" %>
+        <%= f.select :client_type, options_for_select([['Candidate', 'Candidate'], ['Political Action Committee', 'Political Action Committee'], ['501c4', '501c4']]), { :include_blank => "Please select category"}, class: "form-control"  %>
+    
+    </p>
+    
+    <p>
+        <%= f.label "Primary Contact Name" %>
+        <%= f.text_field :poc_name, class: "form-control" %>
+    </p>
+    
+    <p>
+        <%= f.label "Primary Contact Email" %>
+        <%= f.text_field :poc_email, class: "form-control" %>
+    </p>
+    
+    <p>
+        <%= f.label "Primary Contact Phone" %>
+        <%= f.text_field :poc_phone, class: "form-control" %> 
+    </p>
+    
+    <p>
+        <%= f.submit "Save", class: " btn btn-warning form-control" %>
+    </p>
+    
+<% end %>

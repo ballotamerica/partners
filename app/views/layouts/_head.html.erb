@@ -1,0 +1,11 @@
+<% if current_page?(controller: :clients) %>
+    <% if current_page?(clients_path) %>
+        <h1>Clients</h1>
+    <% elsif current_page?(new_client_path) %>
+        <h1>Add a Client</h1>
+    <% else current_page?(edit_client_path) %>
+        <h1>Edit a Client</h1>
+    <% end %>    
+<% else %>
+    <h1>Test header</h1>
+<% end %>

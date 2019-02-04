@@ -1,0 +1,12 @@
+<div class="container">
+    <%#= render 'layouts/head' %>
+    <ul class="list-group">
+        <li class="list-group-item">Invoice Number: <%= @invoice.invoice_number %></li>
+        <li class="list-group-item">Invoice Date: <%= @invoice.invoice_date %></li>
+        <li class="list-group-item">Due Date: <%= @invoice.due_date %></li>
+    </ul>
+    
+    <p>
+        <%= link_to "Edit this invoice", edit_invoice_path(@invoice), class: "btn btn-secondary" %> | <%= link_to "Back to invoices", invoices_path, class: "btn btn-dark" %>    
+    </p>
+</div>

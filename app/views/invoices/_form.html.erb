@@ -1,0 +1,48 @@
+<% if @invoice.errors.any? %>
+    <p>The following errors prevented your invoice from saving:</p>
+    
+    <ul>
+        <% @invoice.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+    
+<% end %>
+    
+<%= form_for @invoice, html: { class: "form-group" } do |f| %>
+    <p>
+        <%= f.label "Invoice Number" %>
+        <%= f.text_field :invoice_number, class: "form-control" %>
+    </p>
+    
+    <p>
+        <%= f.label "Invoice Date" %>
+        <%= f.text_field :invoice_date, class: "form-control", data:{ provide:'datepicker' }  %>
+    </p>
+    
+    <p>
+        <%= f.label "Due Date" %>
+        <%= f.text_field :due_date, class: "form-control", data:{ provide:'datepicker' }  %>
+    </p>
+    
+    <p>
+        <%= f.label "Total Amount" %>
+        <%= f.text_field :total_amount, class: "form-control" %> 
+    </p>
+    
+    <p>
+        <%= f.label "Invoice Note" %>
+        <%= f.text_field :invoice_note, class: "form-control" %> 
+    </p>    
+    
+        <%= fields_for :services do |service_form| %>
+            <p>
+                <%= service_form.label "Select Service" %>
+                <%= service_form.collection_select :name, Service.order(:name), :baserate, :name, { :include_blank => "Add services" }, class: "form-control"  %>
+            </p>  
+        <% end %>
+    <p>
+        <%= f.submit "Save", class: " btn btn-warning form-control" %>
+    </p>
+    
+<% end %>

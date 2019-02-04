@@ -1,0 +1,14 @@
+<div class="container">
+    <%= render 'layouts/head' %>
+    <ul class="list-group">
+        <li class="list-group-item">Client name: <%= @client.name %></li>
+        <li class="list-group-item">Client type: <%= @client.client_type %></li>
+        <li class="list-group-item">Primary Contact Name: <%= @client.poc_name %></li>
+        <li class="list-group-item">Primary Contact Email: <%= @client.poc_email %></li>
+        <li class="list-group-item">Primary Contact Phone: <%= @client.poc_phone %></li>
+    </ul>
+    
+    <p>
+        <%= link_to "Edit this client", edit_client_path(@client), class: "btn btn-secondary" %> | <%= link_to "Back to clients", clients_path, class: "btn btn-dark" %>    
+    </p>
+</div>
