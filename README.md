@@ -7,6 +7,7 @@ Our newest initiative is building our partner program including our this portal 
 Partners todo list
 - Associate services to invoices
 - Associate invoices to clients
+- Double check design templates
 - Style invoices
 - Style clients
 - Style settings
