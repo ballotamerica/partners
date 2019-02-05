@@ -1,5 +1,9 @@
 <div class="container">
-    <%= invoice_navigation_head %>
+    <%= invoice_header %>
+
+    <div class="row">
+        <%= render "layouts/navigation" %>
+    </div>    
     
     <ul class="list-group">
         <li class="list-group-item">Invoice Number: <%= @invoice.invoice_number %></li>
@@ -8,6 +12,6 @@
     </ul>
     
     <p>
-        <%= link_to "Edit this invoice", edit_invoice_path(@invoice), class: "btn btn-secondary" %> | <%= link_to "Back to invoices", invoices_path, class: "btn btn-dark" %>    
+        <%= link_to "Edit this invoice", edit_partners_client_invoice_path(@invoice), class: "btn btn-secondary" %> | <%= link_to "Back to invoices", partners_client_invoices_path, class: "btn btn-dark" %>    
     </p>
 </div>

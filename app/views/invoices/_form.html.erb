@@ -9,7 +9,7 @@
     
 <% end %>
     
-<%= form_for @invoice, html: { class: "form-group" } do |f| %>
+<%= form_for @invoice, url: partners_clients_path(@invoice), html: { class: "form-group" } do |f| %>
     <p>
         <%= f.label "Invoice Number" %>
         <%= f.text_field :invoice_number, class: "form-control" %>
@@ -38,7 +38,7 @@
         <%= fields_for :services do |service_form| %>
             <p>
                 <%= service_form.label "Select Service" %>
-                <%= service_form.collection_select :name, Service.order(:name), :baserate, :name, { :include_blank => "Add services" }, class: "form-control"  %>
+                <%= service_form.collection_select :name, Service.order(:name), :id, :name, { :include_blank => "Add services" }, class: "form-control"  %>
             </p>  
         <% end %>
     <p>

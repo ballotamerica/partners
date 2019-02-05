@@ -9,7 +9,7 @@
     
 <% end %>
     
-<%= form_for @client, html: { class: "form-group" } do |f| %>
+<%= form_for [:partners, @client], html: { class: "form-group" } do |f| %>
     <p>
         <%= f.label "Client Name" %>
         <%= f.text_field :name, class: "form-control" %>

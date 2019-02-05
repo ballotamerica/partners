@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   devise_for :partners, controllers: { sessions: 'partners/sessions' }
   
-  resources :clients  
-  resources :invoices
+  resources :clients do
+    resources :invoices
+  end  
 end

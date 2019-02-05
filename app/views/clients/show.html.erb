@@ -1,6 +1,11 @@
 <div class="container">
-    <% render "layouts/navi" %>
-    <%= client_navigation_head %>
+    <%= client_header %>
+    
+    <div class="row">
+        <%= render "layouts/navigation" %>
+        <p class="space"><%= create_invoice %></p>   
+        <p class="space"><%= view_invoice %></p> 
+    </div>
     
     <ul class="list-group">
         <li class="list-group-item">Client name: <%= @client.name %></li>
@@ -11,6 +16,6 @@
     </ul>
     
     <p>
-        <%= link_to "Edit this client", edit_client_path(@client), class: "btn btn-secondary" %> | <%= link_to "Back to clients", clients_path, class: "btn btn-dark" %>    
+        <%= link_to "Edit this client", edit_partners_client_path(@client), class: "btn btn-secondary" %> | <%= link_to "Back to clients", partners_clients_path, class: "btn btn-dark" %>    
     </p>
 </div>
