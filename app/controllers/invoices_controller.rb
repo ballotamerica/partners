@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
     before_action :set_invoice, only: [:edit, :update, :show, :destroy]
     
     def index
-        @invoices = Invoice.all
+        @invoices = Client.find(params[:client_id]).invoices
     end
     
     def new
@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
        @invoice = client.invoices.build(invoice_params)
         if @invoice.save
             flash[:notice] = "Successfully saved invoice!"
-            redirect_to partners_client_invoices_path
+            redirect_to client_invoices_path
         else
             render 'new'
         end
@@ -29,7 +29,7 @@ class InvoicesController < ApplicationController
     def update
         if @invoice.update(invoice_params)
             flash[:notice] = "Successfully saved invoice!"
-            redirect_to partners_client_invoices_path
+            redirect_to client_invoices_path
         else
             render 'edit'
         end        
@@ -39,10 +39,10 @@ class InvoicesController < ApplicationController
         if @invoice.present?
             @invoice.destroy
             flash[:notice] = "Successfully removed invoice!"
-            redirect_to partners_client_invoices_path
+            redirect_to client_invoices_path
         else
             flash[:notice] = "Error removing invoice!"
-            redirect_to partners_client_invoices_path
+            redirect_to client_invoices_path
         end
     end
     

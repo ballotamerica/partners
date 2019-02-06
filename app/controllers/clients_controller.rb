@@ -55,6 +55,5 @@ class ClientsController < ApplicationController
     
     def client_params
        params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, services_attributes: [:name, :baserate])
-       if 
     end
 end
