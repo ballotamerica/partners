@@ -1,10 +1,27 @@
 <div class="container">
-    <h2>Ballot America Partner Portal</h2>
-    <%= link_to "Become a partner", new_partner_registration_path, class: "btn btn-info" %>
-    <% if partner_signed_in? && current_partner %>
-        <%= link_to "Dashboard", clients_path, class: "btn btn-warning" %>
-        <%= link_to "Logout", destroy_partner_session_path, method: :delete, class: "btn btn-danger" %>
-    <% else %>
-        <%= link_to "Login", new_partner_session_path, class: "btn btn-primary" %>
-    <% end %>
+    <div class="row mt-2">
+        <div class="col-lg">
+            <%= image_tag "logo.png", :size => '48x48' %>
+            <h2 class="pt-5">Ballot America Partners</h2>     
+        </div>
+        
+        <div class="col-lg-2">
+                <%= link_to "Login", new_partner_session_path, class: "btn btn-primary" %>
+        </div>
+        
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-lg"> <!-- Content Left  -->
+            <%= link_to "Become a partner", new_partner_registration_path, class: "btn btn-info" %>
+        </div>
+        
+        <div class="col-lg"><!-- Content Right -->
+            
+        </div>         
+    </div>
+    
+    <div class="row">
+    </div>
 </div>
