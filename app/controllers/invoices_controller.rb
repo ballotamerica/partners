@@ -13,6 +13,11 @@ class InvoicesController < ApplicationController
     def create
        @invoice = client.invoices.build(invoice_params)
         if @invoice.save
+            # format.js - links to create.js.erb
+            # format.html - links to create => new.html.erb
+            # format.json
+            
+            
             flash[:notice] = "Successfully saved invoice!"
             redirect_to client_invoices_path
         else
