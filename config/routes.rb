@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#index"
+  root "application#index"
   
   devise_for :partners, controllers: { sessions: 'partners/sessions' }
   
