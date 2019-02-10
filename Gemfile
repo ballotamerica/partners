@@ -10,6 +10,7 @@ gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1'
+gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
 # Use Devise for User Authentication
 gem 'devise'
 # Use SCSS for stylesheets

@@ -1,9 +1,11 @@
 class PagesController < ApplicationController
    def index
+      @invoices = Invoice.all
+      
       if partner_signed_in? && current_partner
-         render partial: "pages/dashboard"
+         render :template => "pages/dashboard"
       else
-         render template: "pages/index"
+         render :template => "pages/splash"
       end
    end
 end
