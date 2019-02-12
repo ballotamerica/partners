@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController 
     before_action :authenticate_partner!
     before_action :set_client, only: [:edit, :update, :show, :destroy]
-    
+
     def index
        @clients = current_partner.clients
     end
@@ -48,6 +48,14 @@ class ClientsController < ApplicationController
     end
     
     private
+    
+    def current_listing
+       params[:status] = 'current'
+    end
+    
+    def archive_listing
+       params[:status] = 'archive' 
+    end
     
     def set_client
         @client = Client.find(params[:id])

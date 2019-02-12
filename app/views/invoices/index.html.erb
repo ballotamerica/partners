@@ -1,4 +1,23 @@
-<div class="container">
+<%= render "layouts/sidebar" %>
+
+<div class="container-fluid">
+    <div class="row rightbar">
+        <div class="col-lg-4 list-container">
+            <div class="col-lg">
+                <div class="list-title"><!-- Create a if/else for list titles --> Invoices</div>
+            </div>
+            <div class="col-lg listings">
+                <div class="tabswrapper">
+                    <div class="tablist">
+                        <%= link_to "Unpaid", clients_path, class: "styledtab" %>
+                        <%= link_to "Paid", client_invoices_path, class: "styledtab" %>
+                        <%= link_to "Draft", client_invoices_path, class: "styledtab" %>
+                    </div>
+                </div>
+                
+                <div class="contactcards">
+                    <div class="ccards-list">
+                        <div class="cardsgroup">
     <%= invoice_header %>   
 
     <div class="row">
@@ -28,5 +47,16 @@
             </tr>
             <% end %>            
         </tbody>
-    </table>
+    </table>                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-8 projection-container">
+            <%= invoice_header %>
+            <%= render "layouts/navigation" %>  
+        </div>             
+    </div>
 </div>

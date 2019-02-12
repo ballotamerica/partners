@@ -1,32 +1,43 @@
-<div class="container">
-    <%= client_header %>
-    <%= render "layouts/navigation" %>    
-    
-    <table class="table-hover">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">Client Name</th>
-                <th scope="col">Client type</th>
-                <th scope="col">Primary Contact Name</th>
-                <th scope="col">Primary Contact Email</th>
-                <th scope="col">Primary Contact Phone</th>
-                <th scope="col">Invoices</th>
-            </tr>
-        </thead>
+<%= render "layouts/sidebar" %>
+
+<div class="container-fluid">
+    <div class="row rightbar">
+        <div class="col-lg-4 list-container">
+            <div class="col-lg">
+                <div class="list-title"><!-- Create a if/else for list titles --> Clients</div>
+            </div>
+            <div class="col-lg listings">
+                <div class="tabswrapper">
+                    <div class="tablist">
+                        <%= link_to "All", clients_path, class: "styledtab" %>
+                        <%= link_to "Current", clients_path(@client, status: "current"), class: "styledtab" %>
+                        <%= link_to "Archive", clients_path(@client, status: "archive"), class: "styledtab" %>
+                    </div>
+                </div>
+                
+                <div class="contactcards">
+                    <div class="ccards-list">
+                        <div class="cardsgroup">
+                            <table class="table-hover">
+                                <tbody>
+                                    <% @clients.each do |client| %>
+                                    <tr class= "clientcard" <% link_to edit_client_path(client) %> >
+                                        <td class= "clientname"><%= client.name %></td>    
+                                        <td class= "poc"><%= client.poc_number %></td>
+                                        <td class= "poc"><%= client.poc_email %></td>
+                                    </tr>
+                                    <% end %>            
+                                </tbody>
+                            </table>                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <tbody>
-            <% @clients.each do |client| %>
-            <tr>
-                <td><%= client.name %></td>
-                <td><%= client.client_type %></td>
-                <td><%= client.poc_name %></td>
-                <td><%= client.poc_email %></td>
-                <td><%= client.poc_number %></td>
-                <td class="space"><%= link_to "Show", client_path(client), class: "btn btn-sm btn-primary" %></td>
-                <td class="space"><%= link_to "Edit", edit_client_path(client), class: "btn btn-sm btn-warning" %></td>
-                <td class="space"><%= link_to "Delete", client_path(client), method: :delete, data: {confirm: "Are you sure you want to delete this client? This cannot be undone."}, class: "btn btn-sm btn-secondary" %></td>
-            </tr>
-            <% end %>            
-        </tbody>
-    </table>
+        <div class="col-lg-8 projection-container">
+            <%#= client_header %>
+            <%= render "layouts/navigation" %>  
+        </div>             
+    </div>
 </div>

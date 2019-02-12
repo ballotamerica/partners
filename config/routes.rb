@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "application#index"
+  root 'clients#index'
   
-  devise_for :partners, controllers: { sessions: 'partners/sessions' }
+  devise_for :partners, controllers: { sessions: 'partners/sessions', registrations: 'partners/registrations' }
   
   resources :clients do
     resources :invoices

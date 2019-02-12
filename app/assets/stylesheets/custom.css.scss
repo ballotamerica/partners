@@ -4,6 +4,8 @@
 
 // Codes
 $grayscale-icon: rgb(194, 194, 195);
+$lightgrey: #FAFAFA;
+$logo-bg: #034D84;
 $helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Splash
@@ -74,6 +76,12 @@ p.alert-success, p.alert-danger {
             font-size: 1.8rem;
             margin-top: 1.4rem;        
         }
+    }
+    
+    div.sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
     }
     
     .icon-links {
@@ -176,7 +184,7 @@ p.alert-success, p.alert-danger {
         display: flex;
         height: 100%;
         overflow: hidden;        
-        margin: 0 135px;
+        margin: 0 110px;
     }
     
     .list-container {
@@ -233,4 +241,47 @@ p.alert-success, p.alert-danger {
 // Clients
 thead tr td {
     width: 250px;
+}
+
+.clientcard {
+    background-color: white;
+    min-width:  320px;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 1.8rem;
+    box-sizing: border-box;
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0.5rem 1.5rem 0px;
+    background-color: rgb(255, 255, 255);
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+}
+
+.clientcard:hover {
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    text-decoration: none;
+    transition: all 150ms ease 0s;
+    border-color: $logo-bg;          
+}
+
+td {
+    display: table;
+}
+
+.clientname, .poc {
+    font-size: 12px;
+}
+
+.clientname {
+    font-weight: 600;
+}
+
+// Authentication
+.cover {
+    background-color: $lightgrey;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 }
