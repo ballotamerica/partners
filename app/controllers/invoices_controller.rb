@@ -3,11 +3,7 @@ class InvoicesController < ApplicationController
     before_action :set_invoice, only: [:edit, :update, :show, :destroy]
     
     def index
-        if params[:client_id]
-            @invoices = Client.find(params[:client_id]).invoices
-        else
-            @invoices = Invoices.all
-        end
+        @invoices = Invoice.where("client_id = ?", params[:client_id])
     end
     
     def unpaid

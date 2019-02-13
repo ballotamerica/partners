@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :active
       get :archive
     end
-    resources :invoices, except: :index do
+    resources :invoices do
       collection do
         get :edit
         get :paid

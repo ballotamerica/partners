@@ -21,7 +21,7 @@
                                 <table class="table" id="clients">
                                     <tbody>
                                         <% @clients.each do |client| %>
-                                        <tr class= "clientcard">
+                                        <tr class= "clientcard" data-link="<%= edit_client_path(client) %>">
                                             <td class= "clientname"><%= client.name %></td>    
                                             <td class= "poc"><%= client.poc_number %></td>
                                             <td class= "poc"><%= client.poc_email %></td>

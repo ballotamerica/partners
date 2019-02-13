@@ -192,7 +192,7 @@ li.list-group-item:hover {
     margin-bottom: 1.5rem;
 }
 
-.userbadge-container{
+.userbadge-container {
     position: relative;
     display: flex;
     -webkit-box-align: center;
@@ -209,7 +209,8 @@ li.list-group-item:hover {
     font-weight: 600;
     text-transform: uppercase;
     border-radius: 2.1rem;
-    transition: all 150ms ease 0s;        
+    transition: all 150ms ease 0s; 
+    cursor: pointer;
 }
 
 // List Container
@@ -311,6 +312,7 @@ td {
 
 .clientname, .poc {
     font-size: 12px;
+    border-top: 0px !important;
 }
 
 .clientname {
