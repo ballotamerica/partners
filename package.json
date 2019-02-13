@@ -1,5 +1,9 @@
 {
   "name": "partners",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "8": "0.0.1",
+    "v": "^0.3.0",
+    "v8": "^0.1.0"
+  }
 }
