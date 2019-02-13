@@ -2,42 +2,41 @@
 
 <div class="container-fluid">
     <div class="row rightbar">
-        <div class="col-lg-4 list-container">
-            <div class="col-lg">
+        <div class="col-lg-5 list-container">
+            <div class="list-content">
                 <div class="list-title"><!-- Create a if/else for list titles --> Clients</div>
-            </div>
-            <div class="col-lg listings">
-                <div class="tabswrapper">
-                    <div class="tablist">
-                        <%= link_to "All", clients_path, class: "styledtab" %>
-                        <%= link_to "Current", clients_path(@client, status: "current"), class: "styledtab" %>
-                        <%= link_to "Archive", clients_path(@client, status: "archive"), class: "styledtab" %>
-                    </div>
-                </div>
                 
-                <div class="contactcards">
-                    <div class="ccards-list">
-                        <div class="cardsgroup">
-                            <table class="table-hover">
-                                <tbody>
-                                    <% @clients.each do |client| %>
-                                    <tr class= "clientcard" <% link_to edit_client_path(client) %> >
-                                        <td class= "clientname"><%= client.name %></td>    
-                                        <td class= "poc"><%= client.poc_number %></td>
-                                        <td class= "poc"><%= client.poc_email %></td>
-                                    </tr>
-                                    <% end %>            
-                                </tbody>
-                            </table>                                
+                <div class="listings">
+                    <div class="tabswrapper">
+                        <div class="tablist">
+                            <%= link_to "All", clients_path, class: "space" %>
+                            <%= link_to "Existing", active_clients_path, class: "space" %>
+                            <%= link_to "Archive", archive_clients_path, class: "space" %>
+                        </div>
+                    </div>
+                    
+                    <div class="contactcards">
+                        <div class="ccards-list">
+                            <div class="cardsgroup">
+                                <table class="table" id="clients">
+                                    <tbody>
+                                        <% @clients.each do |client| %>
+                                        <tr class= "clientcard" <% link_to edit_client_path(client) %> >
+                                            <td class= "clientname"><%= client.name %></td>    
+                                            <td class= "poc"><%= client.poc_number %></td>
+                                            <td class= "poc"><%= client.poc_email %></td>
+                                        </tr>
+                                        <% end %>            
+                                    </tbody>
+                                </table>                                
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="col-lg-8 projection-container">
-            <%#= client_header %>
-            <%= render "layouts/navigation" %>  
-        </div>             
+        <%= render "layouts/projection" %>
+        
     </div>
 </div>

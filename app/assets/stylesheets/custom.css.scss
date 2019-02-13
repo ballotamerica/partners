@@ -8,16 +8,25 @@ $lightgrey: #FAFAFA;
 $logo-bg: #034D84;
 $helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+// Authentication
+.cover {
+    background-color: $lightgrey;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
 // Splash
-html {
+html, .container, .container-fluid, .projection-container {
     height: 100%;    
+    width: 100%;
 }
 
 .space {
     padding-right: 10px;
 }
 
-// Dashboard
+// Index - Navbar
 body {
     height: 100%;
     width: 100%;
@@ -38,215 +47,245 @@ p.alert-success, p.alert-danger {
     z-index: 2040;
 }
 
-    // Leftbar
-    @media (min-width: 1024px) {
-        .menu-container {
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1rem 0px;
-            width: 9rem;              
-        }
-        
-        .icon-nav {
-            flex-direction: column;
-            -webkit-box-align: center;
-            align-items: center;
-            padding: 0.5rem 0.2rem;        
-        }
-        
-        .icon-text {
-            font-size: 10px;
-            line-height: 3rem;
-            //margin-top: 0.2rem;
-        }
-        
-        .rightbar {
-            width: calc(100% - 9rem);
-        }
-        
-        .list-container {
-            width: 40%;
-            padding: 4rem 0px;            
-        }
-        
-        .listcontent {
-            max-width: 40rem;
-            padding: 0px 7%;
-            margin: 0px auto;
-        }
-        .tabswrapper {
-            font-size: 1.8rem;
-            margin-top: 1.4rem;        
-        }
+// Sidebar
+@media (min-width: 1024px) {
+    .menu-container {
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1rem 0px;
+        width: 9rem;              
     }
     
-    div.sticky {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-    }
-    
-    .icon-links {
-        color: $grayscale-icon;
-        cursor: pointer;
-        display: block;
-        font-size: 1.8rem;
-        height: 24px;
-        width: 24px;
-        border-width: initial;
-        border-style: none;
-        border-color: initial;
-        border-image: initial;        
+    .icon-nav {
+        flex-direction: column;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 0.5rem 0.2rem;        
     }
     
     .icon-text {
-        color: $grayscale-icon;
-        font-weight: 600;    
-    }
-    
-    .toptobottom {
-        height: 100%;
-    }
-    
-    .menu-container {
-        background-color: rgb(255, 255, 255);
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        position: absolute;
-        z-index: 1020;
-        overflow: visible;
-        transition: all 150ms ease 0s;    
-    }    
-    
-    .menutop {
-        -webkit-box-flex: 1;
-        flex-grow: 1;
-        position: relative;        
-    }
-    
-    .logo-container {
-        -webkit-box-align: center;
-        align-items: center;
-        cursor: pointer;
-        display: flex;
-        height: 4.2rem;
-        -webkit-box-pack: center;
-        justify-content: center;
-        width: 4.2rem;
-        -webkit-tap-highlight-color: transparent;
-        margin: 10px auto 0px;        
-    }
-    
-    .spacer {
-        padding: 10px 0 0 0;
-        height: 1.5rem;
-    }
-    
-    .menubottom {
-        width: 100%;
-        -webkit-box-align: center;
-        align-items: center;
-        display: flex;
-        font-size: 1.2rem;
-        height: 100%;
-        width: 100%;
-        padding-right: 2.4rem;
-        padding-left: 2.4rem;
-        box-sizing: border-box;
-        text-decoration: none; 
-        margin-bottom: 1.5rem;
-    }
-    
-    .userbadge-container{
-        position: relative;
-        display: flex;
-        -webkit-box-align: center;
-        align-items: center;        
-    }
-    
-    .badgename {
-        height: 48px;
-        width: 48px;
-        background-color: #034D84;
-        color: white;
+        font-size: 10px;
         line-height: 3rem;
-        text-align: center;
-        font-weight: 600;
-        text-transform: uppercase;
-        border-radius: 2.1rem;
-        transition: all 150ms ease 0s;        
     }
     
-    // Rightbar
     .rightbar {
-        background-color: rgb(250, 250, 250);
-        box-sizing: border-box;
-        display: flex;
-        height: 100%;
-        overflow: hidden;        
-        margin: 0 110px;
+        width: calc(100% - 9rem);
     }
     
     .list-container {
-        background-color: rgb(250, 250, 250);
-        overflow-y: auto;
-        border-right: 0.1rem solid rgb(231, 231, 231);        
+        width: 40%;
+        padding: 4rem 0px;            
     }
     
-    .list-title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: rgb(33, 33, 36);
-        text-transform: capitalize;       
-        margin: -30px 100px 0 0;
+    .listcontent {
+        max-width: 40rem;
+        padding: 0px 7%;
+        margin: 0px auto;
     }
-    
-    .listings {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;        
-    }
-    
     .tabswrapper {
-        width: 100%;
+        font-size: 1.8rem;
+        margin-top: 1.4rem;        
     }
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.icon-links, .icon-button {
+    cursor: pointer;
+    display: block;
+    height: 24px;
+    width: 24px;         
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;        
+}
+
+.icon-links {
+    color: $grayscale-icon;
+    font-size: 1.8rem;
+}
+
+.icon-button {
+    color: $logo-bg;
+    font-size: 2.4rem;  
+    margin: 0 0.6rem 0 0;
+}
+
+.icon-text {
+    color: $grayscale-icon;
+    font-weight: 600;    
+}
+
+.toptobottom {
+    height: 100%;
+}
+
+.menu-container {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    z-index: 1020;
+    overflow: visible;
+    transition: all 150ms ease 0s;    
+}    
+
+.menutop {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    position: relative;        
+}
+
+.logo-container {
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 4.2rem;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 4.2rem;
+    -webkit-tap-highlight-color: transparent;
+    margin: 1rem 1.6rem;        
+}
+
+.dropdown-menu {
+    background-color: transparent;
+    border: none;
     
-    .tablist a {
-        font-size: 18px;
-        font-weight: 600;
-        color: rgb(153, 153, 156);
-        margin-right: 0 1rem 0 0;
-        user-select: none;
-        cursor: pointer;
-        text-transform: capitalize;
-        display: inline-block;
+    a, span {
+        color: $logo-bg;
         text-decoration: none;
     }
-    
-    .tablist a:hover {
-        color: rgb(33, 33, 36);
-        border-bottom: 0.1rem solid rgb(33, 33, 36);        
-    }
-    
-    .contactcards {
-        width: 100%;
-        position: relative;        
-    }
-    
-    .ccards-list {
-        display: flex;
-        flex-direction: column;        
-    }
+}
 
-// Clients
+li.list-group-item:hover {
+    background-color: $logo-bg;
+
+    a, span {
+        color: white;
+    }
+}
+
+.spacer {
+    padding: 10px 0 0 0;
+    height: 1.5rem;
+}
+
+.menubottom {
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+    padding-right: 2.4rem;
+    padding-left: 2.4rem;
+    box-sizing: border-box;
+    text-decoration: none; 
+    margin-bottom: 1.5rem;
+}
+
+.userbadge-container{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;        
+}
+
+.badgename {
+    height: 48px;
+    width: 48px;
+    background-color: #034D84;
+    color: white;
+    line-height: 3rem;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 2.1rem;
+    transition: all 150ms ease 0s;        
+}
+
+// List Container
+.rightbar {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    overflow: hidden;        
+
+}
+
+.list-container {
+    background-color: rgb(250, 250, 250);
+    overflow-y: auto;
+    border-right: 0.01rem solid rgb(231, 231, 231);
+    height: 100%;
+    margin: 0 120px;
+}
+
+.list-content {
+    margin: 0 40px;    
+}
+
+.list-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(33, 33, 36);
+    text-transform: capitalize;       
+    margin: -30px 100px 0 0;
+}
+
+.listings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+}
+
+.tabswrapper {
+    width: 100%;
+}
+
+.tablist a {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(153, 153, 156);
+    margin-right: 0 1rem 0 0;
+    user-select: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.tablist a:hover {
+    color: rgb(33, 33, 36);
+    border-bottom: 0.1rem solid rgb(33, 33, 36);        
+}
+
+.contactcards {
+    width: 100%;
+    position: relative;        
+}
+
+.ccards-list {
+    display: flex;
+    flex-direction: column;        
+}
+
 thead tr td {
     width: 250px;
 }
 
 .clientcard {
     background-color: white;
-    min-width:  320px;
-    width: 100%;
+    height: 110px;
+    width:  360px;
     cursor: pointer;
     margin-bottom: 1.8rem;
     box-sizing: border-box;
@@ -258,7 +297,7 @@ thead tr td {
 }
 
 .clientcard:hover {
-    border-width: 1px;
+    border-width: 0.1rem;
     border-style: solid;
     border-image: initial;
     text-decoration: none;
@@ -278,10 +317,7 @@ td {
     font-weight: 600;
 }
 
-// Authentication
-.cover {
-    background-color: $lightgrey;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
+// Projection Container
+.projection-container {
+    background-color: white;
 }

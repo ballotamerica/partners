@@ -5,10 +5,23 @@
                 <div class="logo-container pt-3">
                     <%= image_tag "logo.png", size: "48x48" %>
                 </div>
+
+                <div class="spacer"></div>
+                <div class="spacer"></div>                
                 
+                <div class="row icon-nav dropright">
+                    <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%=  link_to icon('fas', 'plus-square'), new_client_path, :size => "128x128", class: "icon-button" %>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li class="list-group-item"><%=  link_to "Client", new_client_path %></li>
+                        <li class="list-group-item"><%=  link_to "Invoice", new_client_path %></li>
+                    </ul>
+                </div>
+
                 <div class="spacer"></div>
-                <div class="spacer"></div>
-                <div class="spacer"></div>  
+                <div class="spacer"></div>                
+                <div class="spacer"></div>                 
                 
                 <div class="row icon-nav">
                     <%= link_to icon('fas', 'address-book'), clients_path, :size => "64x64", class: "icon-links" %>
@@ -25,10 +38,15 @@
             </div>
     
             <div class="menubottom">
-                <div class="userbadge-container">
-                    <div class="badgename"><%= name_initials %></div>
+                <div class="userbadge-container dropright">
+                    <div class="badgename" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= name_initials %>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li class="list-group-item"><span>Settings</span><%#= link_to "Settings", account_settings_path %></li>
+                        <li class="list-group-item"><%= link_to "Logout", destroy_partner_session_path, method: :delete %></li>
+                    </ul>
                 </div>
-                <%= link_to "Logout", destroy_partner_session_path, method: :delete, class: "btn btn-danger" %>                
             </div>
         </div>        
     </div>

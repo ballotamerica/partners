@@ -6,12 +6,23 @@ class ClientsController < ApplicationController
        @clients = current_partner.clients
     end
     
+    def active
+       @clients = Client.active
+       render action: :index
+    end
+    
+    def archive
+        @clients = Client.archive
+        render action: :index
+    end
+        
     def new
        @client = Client.new
     end
     
     def create
        @partner = current_partner
+       params[:status] = "current"
        @client = @partner.clients.build(params)
         if @client.save
             flash[:notice] = "Successfully saved client!"
@@ -62,6 +73,6 @@ class ClientsController < ApplicationController
     end
     
     def client_params
-       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, services_attributes: [:name, :baserate])
+       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, :status, services_attributes: [:name, :baserate])
     end
 end

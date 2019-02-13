@@ -3,7 +3,26 @@ class InvoicesController < ApplicationController
     before_action :set_invoice, only: [:edit, :update, :show, :destroy]
     
     def index
-        @invoices = Client.find(params[:client_id]).invoices
+        if params[:client_id]
+            @invoices = Client.find(params[:client_id]).invoices
+        else
+            @invoices = Invoices.all
+        end
+    end
+    
+    def unpaid
+       @invoices = Invoice.unpaid
+       render action: :index
+    end
+    
+    def paid
+        @invoices = Invoice.paid
+        render action: :index
+    end    
+    
+    def draft
+       @invoices = Invoice.draft
+       render action: :index
     end
     
     def new
