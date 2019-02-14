@@ -4,12 +4,18 @@
     <div class="row rightbar">
         <div class="col-lg-5 list-container">
             <div class="list-content">
-                <div class="list-title"><!-- Create a if/else for list titles --> Invoices</div>
+                <div class="list-title">
+                    <h2>
+                        Invoices
+                    </h2>
+                </div>
+                
             
                 <div class="listings">
                     <div class="tabswrapper">
                         <div class="tablist">
-                            <%= link_to "Unpaid", unpaid_invoices_path %>
+                            <%= link_to "All", invoices_path, class: "space" %>
+                            <%= link_to "Unpaid", unpaid_invoices_path, class: "space" %>
                             <%= link_to "Paid", paid_invoices_path, class: "space" %>
                             <%= link_to "Draft", draft_invoices_path, class: "space" %>
                         </div>
@@ -21,12 +27,12 @@
                                 <table class="table">
                                     <tbody>
                                         <% @invoices.each do |invoice| %>    
-                                        <tr class= "clientcard" <% link_to edit_invoice_path(invoice.client, invoice) %>>
+                                        <tr class= "clientcard" data-href="<% link_to edit_invoice_path(invoice.client, invoice) %>" data-remote="true">
+                                          <td><p><strong><%= invoice.client.name %></strong></p></td>
+                                          <td class="text-muted"><strong><%= invoice.due_date %></strong></td>
                                           <td><%= invoice.invoice_number %></td>
-                                          <td><%= invoice.invoice_date %></td>
-                                          <td><%= invoice.due_date %></td>
-                                          <td><%= invoice.total_amount %></td>
-                                          <td><%= link_to "Show", invoice_path(invoice.client, invoice), class: "btn btn-warning" %></td>
+                                          <td><%= number_to_currency(invoice.total_amount, precision: 2) %></td>
+                                          <td><%= link_to "Edit", edit_invoice_path(invoice), class: "btn btn-sm btn-warning" %></td>
                                         </tr>
                                         <% end %>            
                                     </tbody>

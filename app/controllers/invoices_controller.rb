@@ -49,7 +49,7 @@ class InvoicesController < ApplicationController
     def update
         if @invoice.update(invoice_params)
             flash[:notice] = "Successfully saved invoice!"
-            redirect_to client_invoices_path
+            redirect_to invoices_path
         else
             render 'edit'
         end        
@@ -69,7 +69,7 @@ class InvoicesController < ApplicationController
    private
     
     def set_invoice
-        @invoice = Invoice.find(params[:id])
+        @invoice = Invoice.find_by(params[:client_id])
     end
     
     def invoice_params

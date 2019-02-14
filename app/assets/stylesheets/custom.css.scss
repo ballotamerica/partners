@@ -235,11 +235,13 @@ li.list-group-item:hover {
 }
 
 .list-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: rgb(33, 33, 36);
-    text-transform: capitalize;       
-    margin: -30px 100px 0 0;
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: rgb(33, 33, 36);
+        text-transform: capitalize;       
+        margin: -30px 100px 0 0;        
+    }
 }
 
 .listings {
@@ -317,6 +319,39 @@ td {
 
 .clientname {
     font-weight: 600;
+}
+
+.invoice-wrapper {
+    background-color: white;
+    //height: 110px;
+    //width:  360px;
+    cursor: pointer;
+    //margin-bottom: 1.8rem;
+    box-sizing: border-box;
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0.5rem 1.5rem 0px;
+    background-color: rgb(255, 255, 255);
+    padding: 1.6rem;
+    border-radius: 0.8rem;    
+}
+
+// Invoice Show View
+.invoice-wrapper {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.invoice-left {
+    float: left;
+}
+
+.invoice-right {
+    float: right;
+}
+
+.invoice-spacer {
+        padding: 1.25rem 0 0 0;
 }
 
 // Projection Container
