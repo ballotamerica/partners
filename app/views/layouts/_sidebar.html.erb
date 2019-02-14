@@ -28,11 +28,14 @@
                     <div class="icon-text">Clients</div>
                 </div>
                 <div class="row icon-nav">
+                    <%= link_to icon('fas', 'file-invoice'), invoices_path, :size => "64x64", class: "icon-links" %>  
+                    <div class="icon-text">Invoices</div>
+                </div>            
+                <div class="row icon-nav">
                     <%= link_to icon('fas', 'cog'), clients_path, :size => "64x64", class: "icon-links" %>  
                     <div class="icon-text">Settings</div>
                 </div>           
             </div>
-           
     
             <div class="menubottom">
                 <div class="userbadge-container dropright">

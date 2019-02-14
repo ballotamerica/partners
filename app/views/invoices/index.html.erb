@@ -9,9 +9,9 @@
                 <div class="listings">
                     <div class="tabswrapper">
                         <div class="tablist">
-                            <%= link_to "Unpaid", unpaid_client_invoices_path %>
-                            <%= link_to "Paid", paid_client_invoices_path, class: "space" %>
-                            <%= link_to "Draft", draft_client_invoices_path, class: "space" %>
+                            <%= link_to "Unpaid", unpaid_invoices_path %>
+                            <%= link_to "Paid", paid_invoices_path, class: "space" %>
+                            <%= link_to "Draft", draft_invoices_path, class: "space" %>
                         </div>
                     </div>
                     
@@ -21,12 +21,12 @@
                                 <table class="table">
                                     <tbody>
                                         <% @invoices.each do |invoice| %>    
-                                        <tr class= "clientcard" <% link_to edit_client_invoice_path(invoice.client, invoice) %>>
+                                        <tr class= "clientcard" <% link_to edit_invoice_path(invoice.client, invoice) %>>
                                           <td><%= invoice.invoice_number %></td>
                                           <td><%= invoice.invoice_date %></td>
                                           <td><%= invoice.due_date %></td>
                                           <td><%= invoice.total_amount %></td>
-                                          <td><%= link_to "Show", client_invoice_path(invoice.client, invoice), class: "btn btn-warning" %></td>
+                                          <td><%= link_to "Show", invoice_path(invoice.client, invoice), class: "btn btn-warning" %></td>
                                         </tr>
                                         <% end %>            
                                     </tbody>

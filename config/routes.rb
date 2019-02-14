@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'clients#index'
+  root 'pages#splash'
   get 'invoices' => 'invoices#index', as: :invoices
   
   devise_for :partners, controllers: { sessions: 'partners/sessions', registrations: 'partners/registrations' }
@@ -9,13 +9,14 @@ Rails.application.routes.draw do
       get :active
       get :archive
     end
-    resources :invoices do
-      collection do
-        get :edit
-        get :paid
-        get :unpaid
-        get :draft
-      end
-    end
   end  
+  
+  resources :invoices do
+    collection do
+      get :edit
+      get :paid
+      get :unpaid
+      get :draft
+    end
+  end
 end
