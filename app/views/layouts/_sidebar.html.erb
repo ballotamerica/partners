@@ -14,7 +14,7 @@
                         <%=  link_to icon('fas', 'plus-square'), new_client_path, :size => "128x128", class: "icon-button" %>
                     </div>
                     <ul class="dropdown-menu">
-                        <li class="list-group-item"><%=  link_to "Client", new_client_path %></li>
+                        <li class="list-group-item"><%=  link_to "Client", new_client_path, remote: true %></li>
                         <li class="list-group-item"><%=  link_to "Invoice", new_invoice_path %></li>
                     </ul>
                 </div>

@@ -40,10 +40,12 @@ class ClientsController < ApplicationController
        @partner = current_partner
        @client = @partner.clients.build(client_params)
         if @client.save
-            flash[:notice] = "Successfully saved client!"
-            redirect_to clients_path
+            format.js
+            format.html { redirect_to @client, notice: 'Successfully saved client!' }
+            format.json { render :show, status: :created, location: @client }
         else
-            render 'new'
+            format.html { render :new }
+            format.json { render :json, @client.errors, status: :unprocessable_entity }
         end
     end
     
