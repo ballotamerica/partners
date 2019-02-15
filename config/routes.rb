@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'pages#splash'
-  get 'invoices' => 'invoices#index', as: :invoices
   
   devise_for :partners, controllers: { sessions: 'partners/sessions', registrations: 'partners/registrations' }
   

@@ -3,16 +3,16 @@ class ClientsController < ApplicationController
     before_action :set_client, only: [:edit, :update, :show, :destroy]
 
     def index
-       @clients = current_partner.clients
+      @clients = current_partner.clients 
     end
     
     def active
-       @clients = Client.active
+       @client.active
        render action: :index
     end
     
     def archive
-        @clients = Client.archive
+        @client.archive
         render action: :index
     end
         
@@ -22,11 +22,10 @@ class ClientsController < ApplicationController
     
     def create
        @partner = current_partner
-       params[:status] = "current"
-       @client = @partner.clients.build(params)
+       @client = @partner.clients.build(client_params)
         if @client.save
             flash[:notice] = "Successfully saved client!"
-            redirect_to partners_clients_path
+            redirect_to clients_path
         else
             render 'new'
         end
@@ -51,10 +50,10 @@ class ClientsController < ApplicationController
     def destroy
         if @client.destroy && @client.present?
             flash[:notice] = "Client was removed!"
-            redirect_to partners_clients_path
+            redirect_to clients_path
         else
             flash[:notice] = "Client no longer exists! May have been deleted already."
-            redirect_to partners_clients_path
+            redirect_to clients_path
         end
     end
     
@@ -73,6 +72,6 @@ class ClientsController < ApplicationController
     end
     
     def client_params
-       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, :status, services_attributes: [:name, :baserate])
+       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, :status)
     end
 end

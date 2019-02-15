@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
     before_action :set_invoice, only: [:edit, :update, :show, :destroy]
     
     def index
-            @invoices = Invoice.all
+        @invoices = Invoice.all
     end
     
     def unpaid
@@ -34,7 +34,7 @@ class InvoicesController < ApplicationController
             
             
             flash[:notice] = "Successfully saved invoice!"
-            redirect_to client_invoices_path
+            redirect_to invoices_path
         else
             render 'new'
         end
@@ -59,10 +59,10 @@ class InvoicesController < ApplicationController
         if @invoice.present?
             @invoice.destroy
             flash[:notice] = "Successfully removed invoice!"
-            redirect_to client_invoices_path
+            redirect_to invoices_path
         else
             flash[:notice] = "Error removing invoice!"
-            redirect_to client_invoices_path
+            redirect_to invoices_path
         end
     end
     

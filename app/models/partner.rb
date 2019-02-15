@@ -6,5 +6,5 @@ class Partner < ApplicationRecord
          
   has_many :clients         
   
-  accepts_nested_attributes_for :clients, :allow_destroy => true  
+  accepts_nested_attributes_for :clients  
 end

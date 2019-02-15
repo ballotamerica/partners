@@ -35,6 +35,10 @@
         <%= f.text_field :invoice_note, class: "form-control" %> 
     </p>    
     
+    <p>
+        <%= f.hidden_field :status, :value => "draft" %>
+    </p>
+    
         <%= fields_for :services do |service_form| %>
             <p>
                 <%= service_form.label "Select Service" %>
