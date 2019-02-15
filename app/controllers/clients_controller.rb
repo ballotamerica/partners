@@ -1,19 +1,35 @@
 class ClientsController < ApplicationController 
     before_action :authenticate_partner!
+    before_action :mark_clients, only: [:index, :active, :archive]
     before_action :set_client, only: [:edit, :update, :show, :destroy]
 
     def index
-      @clients = current_partner.clients 
+        if @clients.exists?
+          render action: :index
+        else
+          flash[:notice] = "You have no clients added to your account. Please add your first client!"
+          redirect_to new_client_path
+        end
     end
     
     def active
-       @client.active
-       render action: :index
+        @client = Client.active
+        if @client.exists?
+          render action: :index
+        else
+          flash[:notice] = "You have no active clients. Please add new clients!"
+          redirect_to new_client_path  
+        end
     end
     
     def archive
-        @client.archive
-        render action: :index
+        @client = Client.archive
+        if @client.exists?
+          render action: :index
+        else
+          flash[:notice] = "You have no clients archived!"
+          redirect_to clients_path  
+        end
     end
         
     def new
@@ -40,7 +56,7 @@ class ClientsController < ApplicationController
     def update
         if @client.update(client_params)
             flash[:notice] = "Successfully saved client!"
-            redirect_to partners_clients_path
+            redirect_to clients_path
         else
             render 'edit'
         end        
@@ -59,12 +75,8 @@ class ClientsController < ApplicationController
     
     private
     
-    def current_listing
-       params[:status] = 'current'
-    end
-    
-    def archive_listing
-       params[:status] = 'archive' 
+    def mark_clients
+       @clients = current_partner.clients
     end
     
     def set_client
@@ -72,6 +84,6 @@ class ClientsController < ApplicationController
     end
     
     def client_params
-       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, :status)
+       params.require(:client).permit(:name, :client_type, :poc_name, :poc_email, :poc_number, :status, :first_name, :last_name)
     end
 end

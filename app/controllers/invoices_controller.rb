@@ -4,21 +4,42 @@ class InvoicesController < ApplicationController
     
     def index
         @invoices = Invoice.all
+        if @invoices.exists?
+            render action: :index
+        else
+            flash[:notice] = "You have no invoices added to your account. Please create your first invoice!"
+            redirect_to new_invoice_path
+        end
     end
     
     def unpaid
-       @invoices = Invoice.unpaid
-       render action: :index
+       @invoice = Invoice.unpaid
+        if @invoice.exists?
+            render action: :index
+        else
+            flash[:notice] = "You have no unpaid invoices at this time."
+            redirect_to invoices_path
+        end
     end
     
     def paid
-        @invoices = Invoice.paid
-        render action: :index
+       @invoice = Invoice.paid
+        if @invoice.exists?
+            render action: :index
+        else
+            flash[:notice] = "You have no paid invoices at this time."
+            redirect_to invoices_path
+        end        
     end    
     
     def draft
-       @invoices = Invoice.draft
-       render action: :index
+        @invoice = Invoice.draft        
+        if @invoice.exists?
+            render action: :index
+        else
+            flash[:notice] = "You have no invoice drafts at this time."
+            redirect_to invoices_path
+        end         
     end
     
     def new
@@ -66,7 +87,7 @@ class InvoicesController < ApplicationController
         end
     end
     
-   private
+    private
     
     def set_invoice
         @invoice = Invoice.find_by(params[:client_id])

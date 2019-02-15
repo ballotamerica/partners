@@ -8,6 +8,6 @@ module ApplicationHelper
     end
     
     def name_initials
-       current_partner.first_name[0,1] + current_partner.last_name[0, 1] 
+       current_partner.first_name[ 0, 1 ] + current_partner.last_name[ 0, 1 ] 
     end
 end
