@@ -35,6 +35,10 @@ body {
     letter-spacing: 1px;
 }
 
+.notifications {
+    position: absolute;
+}
+
 .app-container, .layout {
     display: flex;
     flex-direction: column;
