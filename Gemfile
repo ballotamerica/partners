@@ -13,8 +13,6 @@ gem 'sassc-rails', '~> 2.1'
 gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
 # Use Devise for User Authentication
 gem 'devise'
-# Use SCSS for stylesheets
-gem 'sassc-rails', '~> 2.1'
 # Use Bootstrap 4 Rails for CSS Framework
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
@@ -57,7 +55,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'  
+  gem 'sqlite3', '1.3.13'
 end
 
 group :test do

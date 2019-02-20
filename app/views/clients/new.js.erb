@@ -1,1 +1,3 @@
-$('#projection').hide().parent().append("<%= j render 'form', client: @client %>");
+var projection = document.querySelector("#projection")
+
+projection.innerHTML = <%= j render partial: 'clients/form' %>

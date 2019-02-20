@@ -24,19 +24,9 @@
                     <div class="contactcards">
                         <div class="ccards-list">
                             <div class="cardsgroup">
-                                <table class="table">
-                                    <tbody>
-                                        <% @invoices.each do |invoice| %>    
-                                        <tr class= "clientcard" data-href="<% link_to edit_invoice_path(invoice.client, invoice) %>" data-remote="true">
-                                          <td><p><strong><%= invoice.client.name %></strong></p></td>
-                                          <td class="text-muted"><strong><%= invoice.due_date %></strong></td>
-                                          <td><%= invoice.invoice_number %></td>
-                                          <td><%= number_to_currency(invoice.total_amount, precision: 2) %></td>
-                                          <td><%= link_to "Edit", edit_invoice_path(invoice), class: "btn btn-sm btn-warning" %></td>
-                                        </tr>
-                                        <% end %>            
-                                    </tbody>
-                                </table>                               
+                                <div>
+                                   <%= no_invoice %>
+                                </div>
                             </div>
                         </div>
                     </div>

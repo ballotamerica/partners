@@ -4,42 +4,21 @@ class InvoicesController < ApplicationController
     
     def index
         @invoices = Invoice.all
-        if @invoices.exists?
-            render action: :index
-        else
-            flash[:notice] = "You have no invoices added to your account. Please create your first invoice!"
-            redirect_to new_invoice_path
-        end
     end
     
     def unpaid
        @invoice = Invoice.unpaid
-        if @invoice.exists?
-            render action: :index
-        else
-            flash[:notice] = "You have no unpaid invoices at this time."
-            redirect_to invoices_path
-        end
+       render action: :index
     end
     
     def paid
        @invoice = Invoice.paid
-        if @invoice.exists?
-            render action: :index
-        else
-            flash[:notice] = "You have no paid invoices at this time."
-            redirect_to invoices_path
-        end        
+       render action: :index
     end    
     
     def draft
-        @invoice = Invoice.draft        
-        if @invoice.exists?
-            render action: :index
-        else
-            flash[:notice] = "You have no invoice drafts at this time."
-            redirect_to invoices_path
-        end         
+        @invoice = Invoice.draft                    
+        render action: :index
     end
     
     def new
